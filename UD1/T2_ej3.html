@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        // Controlamos la edad introducida
+        let edad = parseInt(prompt("Introduce tu edad: "))
+
+        // Comparamos según la edad introducida, tambien se podría haber hecho con un if
+        switch (true) {
+            case edad > 18:
+                document.write(">18: Absoluto")
+                break;
+
+            case edad >= 16 && edad <= 18:
+                document.write("16 - 18: Juvenil")
+                break;
+
+            case edad >= 14:
+                document.write("14 - 15: Cadete")
+                break;
+
+            case edad >= 12:
+                document.write("12 - 13: Infantil")
+                break;
+
+            case edad >= 10:
+                document.write("10 - 11: Alevín")
+                break;
+
+            case edad >= 8:
+                document.write("8 - 9: Benjamín")
+                break;
+
+            default:
+                document.write("La edad es menor de 8")
+        }
+    </script>
+</body>
+</html>
