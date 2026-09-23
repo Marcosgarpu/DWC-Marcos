@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <script>
+        var lado = parseInt(prompt("Ancho (y alto) de cada celda (px):"));
+
+        document.write('<table border="0" cellspacing="0">');
+
+        for (var f = 0; f < 8; f++) {
+            document.write('<tr>');
+            for (var c = 0; c < 8; c++) {
+                var color = ((f + c) % 2 === 0) ? "black" : "white";
+                document.write('<td width="' + lado + '" height="' + lado + '" bgcolor="' + color + '">&nbsp;</td>');
+            }
+            document.write('</tr>');
+        }
+
+        document.write('</table>');
+    </script>
+</body>
+
+</html>

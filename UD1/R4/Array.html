@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array1 = [1, 2, 3];
+        let array2 = [4, 5];
+        let resultado = [];
+        function unirArrays(array1, array2) {
+            let array3 = [];
+            for (let i = 0; i < array1.length; i++) {
+                array3.push(array1[i]);
+            }
+            for (let i = 0; i < array2.length; i++) {
+                array3.push(array2[i]);
+            }
+
+            return array3;
+        }
+
+        resultado = unirArrays(array1, array2);
+
+        for (let index = 0; index < resultado.length; index++) {
+            document.write(resultado[index]);
+        }
+    </script>
+</body>
+</html>

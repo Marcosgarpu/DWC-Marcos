@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <script>
+        var numero = parseInt(prompt("Jugador 1: introduce el número a adivinar:"));
+        var intento;
+        var intentos = 0;
+
+        do {
+            intento = parseInt(prompt("Jugador 2: introduce un número:"));
+            intentos++;
+
+            if (intento < numero) {
+                alert("Muy bajo, prueba con un número mayor.");
+            } else if (intento > numero) {
+                alert("Muy alto, prueba con un número menor.");
+            }
+        } while (intento !== numero);
+
+        alert("¡Correcto! Lo has adivinado en " + intentos + " intentos.");
+    </script>
+</body>
+
+</html>
