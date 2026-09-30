@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <script>
+        function sumEveryOther(...args) {
+            var total = 0;
+            for (var i = 0; i < args.length; i += 2) {
+                total += args[i];
+            }
+            return total;
+        }
+
+        document.write("Suma alterna: " + sumEveryOther(5, 6, 3, 4, 1));
+    </script>
+</body>
+
+</html>

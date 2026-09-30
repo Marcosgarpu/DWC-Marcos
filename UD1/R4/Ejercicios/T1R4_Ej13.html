@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+</head>
+
+<body>
+    <script>
+        function factorial(numero) {
+            if (numero <= 1) {
+                return 1;
+            }
+            return numero * factorial(numero - 1);
+        }
+
+        var numero = parseInt(prompt("Introduce un número para calcular su factorial:"));
+        document.write("El factorial de " + numero + " es: " + factorial(numero));
+    </script>
+</body>
+
+</html>

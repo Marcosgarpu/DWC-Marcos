@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <script>
+        function rango(valor, rangoInf, rangoSup) {
+            return valor >= rangoInf && valor <= rangoSup;
+        }
+
+        var valor = parseFloat(prompt("Introduce el valor a comprobar:"));
+        var rangoInf = parseFloat(prompt("Introduce el límite inferior del rango:"));
+        var rangoSup = parseFloat(prompt("Introduce el límite superior del rango:"));
+        document.write(valor + " está entre " + rangoInf + " y " + rangoSup + ": " + rango(valor, rangoInf, rangoSup));
+    </script>
+</body>
+
+</html>
