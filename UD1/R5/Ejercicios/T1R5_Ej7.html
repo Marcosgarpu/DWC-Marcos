@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+
+<body>
+    <script>
+        function squareAndSum() {
+            var total = 0;
+
+            for (var i = 0; i < arguments.length; i++) {
+                total += arguments[i] * arguments[i];
+            }
+
+            return total;
+        }
+
+        document.write(squareAndSum(2, 4, 3) + "<br>"); // 29
+        document.write(squareAndSum(1, 2)); // 5
+    </script>
+</body>
+
+</html>

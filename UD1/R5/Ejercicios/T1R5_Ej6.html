@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+
+<body>
+    <script>
+        function onlyUniques() {
+            var resultado = [];
+
+            for (var i = 0; i < arguments.length; i++) {
+                var valor = arguments[i];
+                if (resultado.indexOf(valor) === -1) {
+                    resultado.push(valor);
+                }
+            }
+
+            return resultado;
+        }
+
+        document.write(onlyUniques('cat', 'cat', 'dog', 'pig') + "<br>"); // cat,dog,pig
+        document.write(onlyUniques(1, 4, 7, 1, 2, 7, 4)); // 1,4,7,2
+    </script>
+</body>
+
+</html>
