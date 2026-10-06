@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <script>
+        var ahora = new Date();
+        var horas = ahora.getHours();
+        var minutos = ahora.getMinutes();
+        var segundos = ahora.getSeconds();
+
+        var horasStr = (horas < 10 ? "0" : "") + horas;
+        var minutosStr = (minutos < 10 ? "0" : "") + minutos;
+        var segundosStr = (segundos < 10 ? "0" : "") + segundos;
+
+        document.write("1. " + horasStr + ":" + minutosStr + ":" + segundosStr + "<br>");
+        document.write("2. Son las " + horas + "h y " + minutos + "m");
+    </script>
+</body>
+
+</html>
