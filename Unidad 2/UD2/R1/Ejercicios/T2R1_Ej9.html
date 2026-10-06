@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+
+<body>
+    <script>
+        var frase = prompt("Introduce una frase:");
+        var vocales = "aeiouAEIOU";
+        var contador = 0;
+
+        for (var i = 0; i < frase.length; i++) {
+            if (vocales.indexOf(frase[i]) !== -1) {
+                contador++;
+            }
+        }
+
+        document.write("La frase tiene " + contador + " vocales.");
+    </script>
+</body>
+
+</html>

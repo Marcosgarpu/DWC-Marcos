@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <script>
+        var hoy = new Date();
+        var navidad = new Date(hoy.getFullYear(), 11, 19); // mes 11 = diciembre
+
+        if (hoy > navidad) {
+            navidad.setFullYear(hoy.getFullYear() + 1);
+        }
+
+        var diferenciaMs = navidad - hoy;
+        var dias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        document.write("Quedan " + dias + " días hasta las vacaciones de Navidad.");
+    </script>
+</body>
+
+</html>

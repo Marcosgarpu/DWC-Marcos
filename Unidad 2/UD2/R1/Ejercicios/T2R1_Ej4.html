@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        var inicio = new Date();
+
+        var nombre = prompt("Introduce tu nombre:");
+        var apellido1 = prompt("Introduce tu primer apellido:");
+        var apellido2 = prompt("Introduce tu segundo apellido:");
+
+        var fin = new Date();
+        var segundosTardados = (fin - inicio) / 1000;
+
+        document.write("En introducir " + nombre + " " + apellido1 + " " + apellido2 +
+            " has tardado " + segundosTardados + " segundos.");
+    </script>
+</body>
+
+</html>

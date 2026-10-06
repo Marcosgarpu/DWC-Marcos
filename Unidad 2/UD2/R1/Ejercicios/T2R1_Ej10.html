@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+
+<body>
+    <script>
+        var frase = prompt("Introduce una frase:").toLowerCase();
+
+        var contadorA = 0;
+        var contadorE = 0;
+        var contadorI = 0;
+        var contadorO = 0;
+        var contadorU = 0;
+
+        for (var i = 0; i < frase.length; i++) {
+            if (frase[i] === "a") contadorA++;
+            if (frase[i] === "e") contadorE++;
+            if (frase[i] === "i") contadorI++;
+            if (frase[i] === "o") contadorO++;
+            if (frase[i] === "u") contadorU++;
+        }
+
+        document.write("a: " + contadorA + "<br>");
+        document.write("e: " + contadorE + "<br>");
+        document.write("i: " + contadorI + "<br>");
+        document.write("o: " + contadorO + "<br>");
+        document.write("u: " + contadorU);
+    </script>
+</body>
+
+</html>
