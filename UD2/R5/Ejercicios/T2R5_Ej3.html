@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <p onclick="abrirVentanas()" style="cursor: pointer;">Haz clic aquí</p>
+
+    <script>
+        function abrirVentanas() {
+            for (let i = 1; i <= 5; i++) {
+                let ventana = window.open("", "ventana" + i, "width=350,height=350");
+
+                ventana.document.write("<p>ventana " + i + "</p>");
+                ventana.document.write('<button onclick="window.close()">Cerrar</button>');
+            }
+        }
+    </script>
+</body>
+</html>

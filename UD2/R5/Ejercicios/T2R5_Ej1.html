@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <button onclick="cerrarVentana()">Cerrar ventana</button>
+
+    <script>
+        var titulo = prompt("Escribe un título para la página:");
+
+        var ancho = 500;
+        var alto = 400;
+        var izquierda = screen.width - ancho; // pegada a la derecha
+        var arriba = 0; // pegada arriba
+
+        var ventanaSecundaria = window.open("", "ventanaSecundaria",
+            "width=" + ancho + ",height=" + alto + ",left=" + izquierda + ",top=" + arriba);
+
+        ventanaSecundaria.document.write("<h1>" + titulo + "</h1>");
+
+        function cerrarVentana() {
+            ventanaSecundaria.close();
+        }
+    </script>
+</body>
+</html>

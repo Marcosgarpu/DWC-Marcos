@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 16</title>
+  </head>
+  <body>
+    <button onclick="abrirVentana()">Abrir ventana secundaria</button>
+    <button onclick="cerrarVentanaSecundaria()">
+      Cerrar ventana secundaria
+    </button>
+    <button onclick="enviarMensaje()">
+      Envía un mensaje a la ventana secundaria
+    </button>
+
+    <script>
+      var ventanaSecundaria;
+
+      function abrirVentana() {
+        ventanaSecundaria = window.open(
+          "ventanaSecundaria.html",
+          "ventanaSecundaria",
+          "width=400,height=300",
+        );
+      }
+
+      function cerrarVentanaSecundaria() {
+        if (ventanaSecundaria && !ventanaSecundaria.closed) {
+          ventanaSecundaria.close();
+        }
+      }
+
+      function enviarMensaje() {
+        if (ventanaSecundaria && !ventanaSecundaria.closed) {
+          ventanaSecundaria.recibeMensaje("Mensaje desde la ventana principal");
+        }
+      }
+    </script>
+  </body>
+</html>

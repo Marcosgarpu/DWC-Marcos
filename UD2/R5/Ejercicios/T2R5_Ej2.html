@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <button onclick="abrirVentana()">Abrir ventana secundaria</button>
+    <button onclick="cerrarVentanaSecundaria()">Cerrar ventana secundaria</button>
+
+    <script>
+        let ventanaSecundaria;
+
+        function abrirVentana() {
+            ventanaSecundaria = window.open("", "ventanaSecundaria", "width=400,height=300");
+
+            ventanaSecundaria.document.write("<p>Ventana secundaria</p>");
+            ventanaSecundaria.document.write('<button onclick="window.close()">Cerrar ventana</button>');
+        }
+
+        function cerrarVentanaSecundaria() {
+            if (ventanaSecundaria && !ventanaSecundaria.closed) {
+                ventanaSecundaria.close();
+            }
+        }
+    </script>
+</body>
+</html>

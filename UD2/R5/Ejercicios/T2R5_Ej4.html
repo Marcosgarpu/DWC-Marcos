@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <p>Hemos cambiado de ubicación esta página. En breves momentos será redireccionado...</p>
+    <p id="contador">5</p>
+
+    <script>
+        let segundos = 5;
+
+        function cuentaAtras() {
+            segundos = segundos - 1;
+            document.getElementById("contador").innerHTML = segundos;
+
+            if (segundos > 0) {
+                setTimeout(cuentaAtras, 1000); // vuelve a llamarse a sí misma 1 segundo después
+            } else {
+                window.location.href = "http://www.pccomponentes.com";
+            }
+        }
+
+        setTimeout(cuentaAtras, 1000); // empieza la cuenta atrás después de 1 segundo
+    </script>
+</body>
+</html>
