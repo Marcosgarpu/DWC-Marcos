@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 4</title>
+    <script src="funciones.js"></script>
+  </head>
+  <body>
+    <script>
+      var continuar = true;
+
+      while (continuar) {
+        var cateto1 = parseFloat(prompt("Introduce el primer cateto:"));
+        var cateto2 = parseFloat(prompt("Introduce el segundo cateto:"));
+
+        document.write(
+          "La hipotenusa es: " + calcularHipotenusa(cateto1, cateto2) + "<br>",
+        );
+
+        continuar = confirm("¿Quieres continuar?");
+      }
+
+      document.write("Programa finalizado.");
+    </script>
+  </body>
+</html>

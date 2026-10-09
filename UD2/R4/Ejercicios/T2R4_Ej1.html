@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script src="funciones.js"></script>
+</head>
+<body>
+    <script>
+        document.write("Número aleatorio entre 0 y 1: " + numeroAleatorio01() + "<br>");
+        document.write("Número aleatorio entre 100 y 200: " + numeroAleatorioRango(100, 200) + "<br>");
+
+        let valor1 = parseInt(prompt("Introduce el valor pequeño del intervalo: "));
+        let valor2 = parseInt(prompt("Introduce el valor mayor del intervalo: "));
+        document.write("Número aleatorio entre " + valor1 + " y " + valor2 + ": " + numeroAleatorioRango(valor1, valor2));
+    </script>
+</body>
+</html>
