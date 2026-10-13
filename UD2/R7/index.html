@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa con Leaflet y geolocalización</title>
+
+  <!-- CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #info { padding: 8px 12px; background: #f2f2f2; }
+    #map { height: 90vh; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="info">Obteniendo tu ubicación...</div>
+  <div id="map"></div>
+
+  <!-- JS de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Ubicación por defecto (Sevilla) por si falla la geolocalización
+    const posicionPorDefecto = [37.3891, -5.9845];
+
+    // Crear el mapa
+    const map = L.map('map').setView([37.1773, -3.5986], 13); // Granada
+    // Capa de OpenStreetMap
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const info = document.getElementById('info');
+
+    // Si la geolocalización funciona
+    function mostrarPosicion(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const precision = position.coords.accuracy;
+
+      info.textContent = `Latitud: ${lat.toFixed(5)} | Longitud: ${lon.toFixed(5)}`;
+
+      // Centrar el mapa en la posición del usuario
+      map.setView([lat, lon], 16);
+
+      // Marcador con popup
+      L.marker([lat, lon])
+        .addTo(map)
+        .bindPopup('¡Estás aquí!')
+        .openPopup();
+
+      // Círculo con la precisión en metros
+      L.circle([lat, lon], { radius: precision }).addTo(map);
+    }
+
+    // Si hay algún error
+    function mostrarError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          info.textContent = 'Permiso de ubicación denegado.';
+          break;
+        case error.POSITION_UNAVAILABLE:
+          info.textContent = 'La información de ubicación no está disponible.';
+          break;
+        case error.TIMEOUT:
+          info.textContent = 'Se agotó el tiempo para obtener la ubicación.';
+          break;
+        default:
+          info.textContent = 'Error desconocido.';
+      }
+    }
+
+    // Comprobar si el navegador soporta geolocalización
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(mostrarPosicion, mostrarError, {
+        enableHighAccuracy: true,
+        timeout: 10000
+      });
+    } else {
+      info.textContent = 'Tu navegador no soporta geolocalización.';
+    }
+
+    // Extra: al hacer clic en el mapa, mostrar las coordenadas
+    map.on('click', function (e) {
+      L.popup()
+        .setLatLng(e.latlng)
+        .setContent(`Coordenadas: ${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`)
+        .openOn(map);
+    });
+  </script>
+</body>
+</html>
