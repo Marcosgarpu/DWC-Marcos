@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ7</title>
+  </head>
+  <body>
+    <script>
+      let datos = [];
+
+      for (let i = 0; i < 20; i++) {
+        datos.push(Math.floor(Math.random() * 101));
+      }
+
+      document.write("<p><b>Sin ordenar:</b> " + datos.join(", ") + "</p>");
+
+      // Copia del array para ordenarlo
+      let ordenado = [];
+      for (let i = 0; i < datos.length; i++) {
+        ordenado.push(datos[i]);
+      }
+
+      // Ordenación burbuja
+      for (let i = 0; i < ordenado.length - 1; i++) {
+        for (let j = 0; j < ordenado.length - 1 - i; j++) {
+          if (ordenado[j] > ordenado[j + 1]) {
+            let aux = ordenado[j];
+            ordenado[j] = ordenado[j + 1];
+            ordenado[j + 1] = aux;
+          }
+        }
+      }
+
+      // Eliminar duplicados (como está ordenado, los repetidos son consecutivos)
+      let sinDuplicados = [];
+      for (let i = 0; i < ordenado.length; i++) {
+        if (i === 0 || ordenado[i] !== ordenado[i - 1]) {
+          sinDuplicados.push(ordenado[i]);
+        }
+      }
+
+      document.write(
+        "<p><b>Ordenado sin duplicados:</b> " +
+          sinDuplicados.join(", ") +
+          "</p>",
+      );
+    </script>
+  </body>
+</html>

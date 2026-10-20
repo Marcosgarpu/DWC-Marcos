@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ4</title>
+  </head>
+  <body>
+    <script>
+      let array1 = ["casa", "perro", "gato", "mesa", "silla"];
+      let array2 = ["gato", "coche", "mesa", "libro", "luz"];
+
+      let interseccion = [];
+      let union = [];
+      let diferencia = [];
+
+      // Intersección: elementos que están en ambos arrays
+      for (let i = 0; i < array1.length; i++) {
+        for (let j = 0; j < array2.length; j++) {
+          if (array1[i] === array2[j]) {
+            interseccion.push(array1[i]);
+          }
+        }
+      }
+
+      // Unión: todos los elementos sin repetir
+      for (let i = 0; i < array1.length; i++) {
+        union.push(array1[i]);
+      }
+      for (let i = 0; i < array2.length; i++) {
+        let repetido = false;
+        for (let j = 0; j < union.length; j++) {
+          if (array2[i] === union[j]) {
+            repetido = true;
+          }
+        }
+        if (!repetido) {
+          union.push(array2[i]);
+        }
+      }
+
+      // Diferencia: elementos de array1 que NO están en array2
+      for (let i = 0; i < array1.length; i++) {
+        let estaEnArray2 = false;
+        for (let j = 0; j < array2.length; j++) {
+          if (array1[i] === array2[j]) {
+            estaEnArray2 = true;
+          }
+        }
+        if (!estaEnArray2) {
+          diferencia.push(array1[i]);
+        }
+      }
+
+      document.write("<p>Array 1: " + array1.join(", ") + "</p>");
+      document.write("<p>Array 2: " + array2.join(", ") + "</p>");
+      document.write(
+        "<p><b>Intersección:</b> " + interseccion.join(", ") + "</p>",
+      );
+      document.write("<p><b>Unión:</b> " + union.join(", ") + "</p>");
+      document.write(
+        "<p><b>Diferencia (array1 - array2):</b> " +
+          diferencia.join(", ") +
+          "</p>",
+      );
+    </script>
+  </body>
+</html>

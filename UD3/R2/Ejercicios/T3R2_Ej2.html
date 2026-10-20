@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ2</title>
+  </head>
+  <body>
+    <script>
+      let colores = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+      let color = prompt("Introduce un color:").toLowerCase();
+      let encontrado = false;
+
+      for (let i = 0; i < colores.length; i++) {
+        if (colores[i] === color) {
+          encontrado = true;
+        }
+      }
+
+      if (encontrado) {
+        document.write(
+          "<p>El color <b>" + color + "</b> SÍ está en el array.</p>",
+        );
+      } else {
+        document.write(
+          "<p>El color <b>" + color + "</b> NO está en el array.</p>",
+        );
+      }
+    </script>
+  </body>
+</html>

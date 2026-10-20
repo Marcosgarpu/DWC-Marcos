@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ9</title>
+  </head>
+  <body>
+    <script>
+      let texto = prompt("Introduce una cadena de texto:");
+      let palabras = texto.trim().split(" ");
+
+      // Palabras en orden inverso
+      let inverso = [];
+      for (let i = palabras.length - 1; i >= 0; i--) {
+        inverso.push(palabras[i]);
+      }
+
+      // Ordenadas de la A a la Z
+      let ordenAZ = [];
+      for (let i = 0; i < palabras.length; i++) {
+        ordenAZ.push(palabras[i]);
+      }
+      ordenAZ.sort();
+
+      // Ordenadas de la Z a la A
+      let ordenZA = [];
+      for (let i = ordenAZ.length - 1; i >= 0; i--) {
+        ordenZA.push(ordenAZ[i]);
+      }
+
+      // Nueva ventana con la información
+      let ventana = window.open("", "", "width=500,height=400");
+      ventana.document.write("<h2>Información del texto</h2>");
+      ventana.document.write(
+        "<p><b>Número de palabras:</b> " + palabras.length + "</p>",
+      );
+      ventana.document.write(
+        "<p><b>Primera palabra:</b> " + palabras[0] + "</p>",
+      );
+      ventana.document.write(
+        "<p><b>Última palabra:</b> " + palabras[palabras.length - 1] + "</p>",
+      );
+      ventana.document.write(
+        "<p><b>Orden inverso:</b> " + inverso.join(" ") + "</p>",
+      );
+      ventana.document.write(
+        "<p><b>De la A a la Z:</b> " + ordenAZ.join(" ") + "</p>",
+      );
+      ventana.document.write(
+        "<p><b>De la Z a la A:</b> " + ordenZA.join(" ") + "</p>",
+      );
+    </script>
+  </body>
+</html>

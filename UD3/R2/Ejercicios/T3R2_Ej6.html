@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ6</title>
+  </head>
+  <body>
+    <div id="contenido">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore.
+      </p>
+      <p>
+        El desarrollo web combina HTML, CSS y JavaScript para crear páginas
+        interactivas.
+      </p>
+      <p>
+        Los arrays permiten guardar letios valores en una sola letiable y
+        recorrerlos con un bucle.
+      </p>
+    </div>
+
+    <br />
+    <button onclick="buscarPalabra()">Buscar palabra</button>
+
+    <script>
+      function buscarPalabra() {
+        let palabra = prompt("Introduce la palabra o texto a buscar:");
+        let texto = document
+          .getElementById("contenido")
+          .innerText.toLowerCase();
+
+        if (palabra === null || palabra === "") {
+          alert("No has introducido nada.");
+        } else if (texto.indexOf(palabra.toLowerCase()) !== -1) {
+          alert('La palabra "' + palabra + '" SÍ existe en el documento.');
+        } else {
+          alert('La palabra "' + palabra + '" NO existe en el documento.');
+        }
+      }
+    </script>
+  </body>
+</html>

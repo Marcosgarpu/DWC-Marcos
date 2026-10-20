@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ5</title>
+  </head>
+  <body>
+    <script>
+      let datos = [];
+
+      for (let i = 0; i < 20; i++) {
+        datos.push(Math.floor(Math.random() * 101));
+      }
+
+      document.write("<h2>Datos del array</h2>");
+      for (let i = 0; i < datos.length; i++) {
+        document.write("<p>Posición " + i + ": " + datos[i] + "</p>");
+      }
+
+      let minimo = datos[0];
+      let maximo = datos[0];
+      let suma = 0;
+
+      for (let i = 0; i < datos.length; i++) {
+        if (datos[i] < minimo) {
+          minimo = datos[i];
+        }
+        if (datos[i] > maximo) {
+          maximo = datos[i];
+        }
+        suma = suma + datos[i];
+      }
+
+      let media = suma / datos.length;
+
+      document.write("<h2>Información</h2>");
+      document.write("<p>Valor mínimo: " + minimo + "</p>");
+      document.write("<p>Valor máximo: " + maximo + "</p>");
+      document.write("<p>Valor medio: " + media.toFixed(2) + "</p>");
+    </script>
+  </body>
+</html>

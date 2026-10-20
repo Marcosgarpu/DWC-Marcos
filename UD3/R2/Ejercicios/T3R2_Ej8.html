@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ8</title>
+  </head>
+  <body>
+    <script>
+      let cadena = prompt("Introduce letios nombres separados por comas:");
+      let nombres = cadena.split(",");
+
+      // Quitar espacios sobrantes de cada nombre
+      for (let i = 0; i < nombres.length; i++) {
+        nombres[i] = nombres[i].trim();
+      }
+
+      nombres.sort();
+
+      document.write("<h2>Nombres ordenados</h2>");
+      for (let i = 0; i < nombres.length; i++) {
+        document.write("<p>" + (i + 1) + ". " + nombres[i] + "</p>");
+      }
+    </script>
+  </body>
+</html>
