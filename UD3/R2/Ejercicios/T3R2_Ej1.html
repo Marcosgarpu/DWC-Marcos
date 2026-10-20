@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T4_EJ1</title>
+  </head>
+  <body>
+    <script>
+      let numeros = [];
+
+      for (let i = 0; i < 5; i++) {
+        let n = parseFloat(prompt("Introduce el número " + (i + 1) + ":"));
+        numeros.push(n);
+      }
+
+      let minimo = numeros[0];
+      let maximo = numeros[0];
+      let suma = 0;
+
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] < minimo) {
+          minimo = numeros[i];
+        }
+        if (numeros[i] > maximo) {
+          maximo = numeros[i];
+        }
+        suma = suma + numeros[i];
+      }
+
+      let media = suma / numeros.length;
+
+      document.write("<h2>Números: " + numeros.join(", ") + "</h2>");
+      document.write("<p>Valor mínimo: " + minimo + "</p>");
+      document.write("<p>Valor máximo: " + maximo + "</p>");
+      document.write("<p>Valor medio: " + media + "</p>");
+    </script>
+  </body>
+</html>
