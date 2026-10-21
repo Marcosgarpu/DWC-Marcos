@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejemplo de uso de modAuxiliar.js</title>
+    <script src="modAuxiliar.js"></script>
+  </head>
+  <body>
+    <h1>Ejemplos de modAuxiliar.js</h1>
+    <div id="resultados"></div>
+
+    <script>
+      const contenedor = document.getElementById("resultados");
+
+      // Añade una línea con la llamada y su resultado
+      function mostrar(llamada, resultado) {
+        contenedor.innerHTML +=
+          "<p><code>" +
+          llamada +
+          "</code><br>Resultado: <b>" +
+          JSON.stringify(resultado) +
+          "</b></p>";
+      }
+
+      mostrar(
+        "filterNumbersGreaterThan([3, 8, 12, 1, 7, 4], 7)",
+        filterNumbersGreaterThan([3, 8, 12, 1, 7, 4], 7),
+      );
+
+      mostrar(
+        'toHackerSpeak("I\'m a hacker now")',
+        toHackerSpeak("I'm a hacker now"),
+      );
+
+      mostrar('getFileExtension("imagen.jpg")', getFileExtension("imagen.jpg"));
+
+      mostrar(
+        "flatArray([[1, 5, 4], [3, 10], [2, 5]])",
+        flatArray([
+          [1, 5, 4],
+          [3, 10],
+          [2, 5],
+        ]),
+      );
+
+      mostrar(
+        "removeDuplicates([4, 5, 10, 4, 10, 2])",
+        removeDuplicates([4, 5, 10, 4, 10, 2]),
+      );
+
+      mostrar('countLetter("a", "javascript")', countLetter("a", "javascript"));
+
+      mostrar(
+        'removeWords("This is a really bad test", ["really", "bad"])',
+        removeWords("This is a really bad test", ["really", "bad"]),
+      );
+    </script>
+  </body>
+</html>
