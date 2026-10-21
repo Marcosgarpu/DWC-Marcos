@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ8 Dos dados</title>
+  </head>
+  <body>
+    <script>
+      // frecuencias[suma] guarda cuántas veces ha salido esa suma (de 2 a 12)
+      const frecuencias = [];
+      for (let i = 0; i <= 12; i++) {
+        frecuencias[i] = 0;
+      }
+
+      const LANZAMIENTOS = 36000;
+
+      for (let i = 0; i < LANZAMIENTOS; i++) {
+        const dado1 = Math.floor(Math.random() * 6) + 1;
+        const dado2 = Math.floor(Math.random() * 6) + 1;
+        frecuencias[dado1 + dado2]++;
+      }
+
+      document.write(
+        "<h2>Simulación de " + LANZAMIENTOS + " lanzamientos</h2>",
+      );
+      document.write("<table border='1' cellpadding='5'>");
+      document.write("<tr><th>Suma</th><th>Veces</th><th>Porcentaje</th></tr>");
+      for (let suma = 2; suma <= 12; suma++) {
+        const porcentaje = ((frecuencias[suma] * 100) / LANZAMIENTOS).toFixed(
+          2,
+        );
+        document.write(
+          "<tr><td>" +
+            suma +
+            "</td><td>" +
+            frecuencias[suma] +
+            "</td><td>" +
+            porcentaje +
+            " %</td></tr>",
+        );
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>

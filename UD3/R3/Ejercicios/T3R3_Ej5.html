@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ5 Pares e impares</title>
+  </head>
+  <body>
+    <script>
+      function paresImpares() {
+        const numeros = [];
+
+        for (let i = 0; i < 100; i++) {
+          numeros.push(Math.floor(Math.random() * 1000) + 1);
+        }
+
+        document.write("<h3>Array original</h3>");
+        document.write("<p>" + numeros.join(", ") + "</p>");
+
+        // Primero los pares y después los impares
+        const pares = [];
+        const impares = [];
+        for (let i = 0; i < numeros.length; i++) {
+          if (numeros[i] % 2 === 0) {
+            pares.push(numeros[i]);
+          } else {
+            impares.push(numeros[i]);
+          }
+        }
+
+        for (let i = 0; i < pares.length; i++) {
+          numeros[i] = pares[i];
+        }
+        for (let i = 0; i < impares.length; i++) {
+          numeros[pares.length + i] = impares[i];
+        }
+
+        document.write(
+          "<h3>Array organizado (" +
+            pares.length +
+            " pares y " +
+            impares.length +
+            " impares)</h3>",
+        );
+        document.write("<p>" + numeros.join(", ") + "</p>");
+      }
+
+      paresImpares();
+    </script>
+  </body>
+</html>

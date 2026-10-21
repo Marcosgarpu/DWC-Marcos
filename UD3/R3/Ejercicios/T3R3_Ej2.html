@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ2 Nota de un estudiante</title>
+  </head>
+  <body>
+    <h2>Nota de un estudiante</h2>
+    Nº de estudiante:
+    <input type="number" id="numEstudiante" min="1" /> Trimestre (vacío = nota
+    media): <input type="number" id="trimestre" min="1" max="3" />
+    <button onclick="mostrarNota()">Ver nota</button>
+    <p id="resultado"></p>
+
+    <script>
+      const clase = [
+        "Angel Garcia, 20, 6, 7, 10",
+        "Lucia Martin, 19, 8, 9, 7",
+        "Pablo Ruiz, 21, 5, 4, 6",
+        "Marta Lopez, 20, 9, 10, 9",
+        "Sergio Diaz, 22, 7, 6, 8",
+      ];
+
+      // Si no se indica el trimestre, devuelve la nota media
+      function obtenerNota(numEstudiante, trimestre) {
+        const campos = clase[numEstudiante - 1].split(",");
+        for (let i = 0; i < campos.length; i++) {
+          campos[i] = campos[i].trim();
+        }
+
+        if (trimestre === undefined) {
+          const suma =
+            Number(campos[2]) + Number(campos[3]) + Number(campos[4]);
+          return suma / 3;
+        }
+        return Number(campos[1 + trimestre]);
+      }
+
+      function mostrarNota() {
+        const num = parseInt(document.getElementById("numEstudiante").value);
+        const trim = document.getElementById("trimestre").value;
+        const resultado = document.getElementById("resultado");
+
+        if (isNaN(num) || num < 1 || num > clase.length) {
+          resultado.innerHTML =
+            "Introduce un número de estudiante entre 1 y " + clase.length;
+          return;
+        }
+
+        if (trim === "") {
+          resultado.innerHTML = "Nota media: " + obtenerNota(num).toFixed(2);
+        } else {
+          const t = parseInt(trim);
+          if (t < 1 || t > 3) {
+            resultado.innerHTML = "El trimestre debe ser 1, 2 o 3";
+            return;
+          }
+          resultado.innerHTML =
+            "Nota del trimestre " + t + ": " + obtenerNota(num, t);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ1 Clase</title>
+  </head>
+  <body>
+    <h2>Alumnos de la clase</h2>
+    <div id="lista"></div>
+
+    <script>
+      // Cada elemento es una cadena: nombre, edad, nota 1T, nota 2T, nota 3T
+      const clase = [
+        "Angel Garcia, 20, 6, 7, 10",
+        "Lucia Martin, 19, 8, 9, 7",
+        "Pablo Ruiz, 21, 5, 4, 6",
+        "Marta Lopez, 20, 9, 10, 9",
+        "Sergio Diaz, 22, 7, 6, 8",
+      ];
+
+      let html = "<table border='1' cellpadding='5'>";
+      html +=
+        "<tr><th>Nº</th><th>Nombre</th><th>Edad</th><th>1º Trim.</th><th>2º Trim.</th><th>3º Trim.</th></tr>";
+
+      for (let i = 0; i < clase.length; i++) {
+        const campos = clase[i].split(",");
+        for (let j = 0; j < campos.length; j++) {
+          campos[j] = campos[j].trim();
+        }
+        html +=
+          "<tr><td>" +
+          (i + 1) +
+          "</td><td>" +
+          campos[0] +
+          "</td><td>" +
+          campos[1] +
+          "</td><td>" +
+          campos[2] +
+          "</td><td>" +
+          campos[3] +
+          "</td><td>" +
+          campos[4] +
+          "</td></tr>";
+      }
+
+      html += "</table>";
+      document.getElementById("lista").innerHTML = html;
+    </script>
+  </body>
+</html>

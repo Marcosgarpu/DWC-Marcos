@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ9 Dos dados con combinaciones</title>
+  </head>
+  <body>
+    <script>
+      const LANZAMIENTOS = 36000;
+
+      // Array de una dimensión con las sumas
+      const frecuencias = [];
+      for (let i = 0; i <= 12; i++) {
+        frecuencias[i] = 0;
+      }
+
+      // Array bidimensional 6x6 con las combinaciones (fila = dado 1, columna = dado 2)
+      const combinaciones = [];
+      for (let i = 0; i < 6; i++) {
+        combinaciones[i] = [];
+        for (let j = 0; j < 6; j++) {
+          combinaciones[i][j] = 0;
+        }
+      }
+
+      for (let i = 0; i < LANZAMIENTOS; i++) {
+        const dado1 = Math.floor(Math.random() * 6) + 1;
+        const dado2 = Math.floor(Math.random() * 6) + 1;
+        frecuencias[dado1 + dado2]++;
+        combinaciones[dado1 - 1][dado2 - 1]++;
+      }
+
+      document.write("<h2>Frecuencia de cada suma</h2>");
+      document.write("<table border='1' cellpadding='5'>");
+      document.write("<tr><th>Suma</th><th>Veces</th></tr>");
+      for (let suma = 2; suma <= 12; suma++) {
+        document.write(
+          "<tr><td>" + suma + "</td><td>" + frecuencias[suma] + "</td></tr>",
+        );
+      }
+      document.write("</table>");
+
+      document.write(
+        "<h2>Combinaciones (dado 1 en filas, dado 2 en columnas)</h2>",
+      );
+      document.write("<table border='1' cellpadding='5'>");
+      document.write("<tr><th></th>");
+      for (let j = 1; j <= 6; j++) {
+        document.write("<th>Dado 2 = " + j + "</th>");
+      }
+      document.write("</tr>");
+      for (let i = 0; i < 6; i++) {
+        document.write("<tr><th>Dado 1 = " + (i + 1) + "</th>");
+        for (let j = 0; j < 6; j++) {
+          document.write("<td>" + combinaciones[i][j] + "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>

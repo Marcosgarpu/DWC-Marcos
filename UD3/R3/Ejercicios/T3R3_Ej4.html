@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ4 Estudiante al azar</title>
+  </head>
+  <body>
+    <h2>Estudiante al azar</h2>
+    <button onclick="mostrarAlAzar()">Elegir estudiante</button>
+    <p id="resultado"></p>
+
+    <script>
+      const clase = [
+        "Angel Garcia, 20, 6, 7, 10",
+        "Lucia Martin, 19, 8, 9, 7",
+        "Pablo Ruiz, 21, 5, 4, 6",
+        "Marta Lopez, 20, 9, 10, 9",
+        "Sergio Diaz, 22, 7, 6, 8",
+      ];
+
+      let yaElegidos = [];
+
+      // Devuelve el nombre de un estudiante al azar
+      function estudianteAlAzar() {
+        if (yaElegidos.length === clase.length) {
+          yaElegidos = [];
+        }
+
+        let indice;
+        let repetido;
+        do {
+          indice = Math.floor(Math.random() * clase.length);
+          repetido = false;
+          for (let i = 0; i < yaElegidos.length; i++) {
+            if (yaElegidos[i] === indice) {
+              repetido = true;
+            }
+          }
+        } while (repetido);
+
+        yaElegidos.push(indice);
+        return clase[indice].split(",")[0].trim();
+      }
+
+      function mostrarAlAzar() {
+        document.getElementById("resultado").innerHTML =
+          "Le toca a: <b>" + estudianteAlAzar() + "</b>";
+      }
+    </script>
+  </body>
+</html>

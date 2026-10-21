@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ10 Reservas de vuelo</title>
+  </head>
+  <body>
+    <h2>Reserva de asientos</h2>
+
+    Tipo de asiento:
+    <select id="tipo" onchange="cargarAsientosLibres()">
+      <option value="First">First (asientos 1 a 5)</option>
+      <option value="Turista">Turista (asientos 6 a 10)</option>
+    </select>
+
+    Asiento libre:
+    <select id="asiento"></select>
+
+    Nombre del pasajero: <input type="text" id="pasajero" />
+    <button onclick="reservar()">Reservar</button>
+
+    <h3>Estado del vuelo</h3>
+    <div id="tabla"></div>
+
+    <script>
+      // Cada posición es un asiento: "" = libre, si no, el nombre del pasajero
+      const asientos = [];
+      for (let i = 0; i < 10; i++) {
+        asientos[i] = "";
+      }
+
+      function claseDeAsiento(posicion) {
+        if (posicion < 5) {
+          return "First";
+        }
+        return "Turista";
+      }
+
+      function cargarAsientosLibres() {
+        const tipo = document.getElementById("tipo").value;
+        const select = document.getElementById("asiento");
+        select.innerHTML = "";
+
+        let inicio = 5;
+        let fin = 9;
+        if (tipo === "First") {
+          inicio = 0;
+          fin = 4;
+        }
+
+        for (let i = inicio; i <= fin; i++) {
+          if (asientos[i] === "") {
+            const opcion = document.createElement("option");
+            opcion.value = i;
+            opcion.text = "Asiento " + (i + 1);
+            select.appendChild(opcion);
+          }
+        }
+
+        if (select.options.length === 0) {
+          const opcion = document.createElement("option");
+          opcion.value = -1;
+          opcion.text = "No quedan asientos libres";
+          select.appendChild(opcion);
+        }
+      }
+
+      function reservar() {
+        const posicion = parseInt(document.getElementById("asiento").value);
+        const nombre = document.getElementById("pasajero").value.trim();
+
+        if (posicion === -1) {
+          alert("No quedan asientos libres en esta clase.");
+          return;
+        }
+        if (nombre === "") {
+          alert("Introduce el nombre del pasajero.");
+          return;
+        }
+
+        asientos[posicion] = nombre;
+        document.getElementById("pasajero").value = "";
+
+        cargarAsientosLibres();
+        mostrarAsientos();
+      }
+
+      function mostrarAsientos() {
+        let html = "<table border='1' cellpadding='5'>";
+        html +=
+          "<tr><th>Asiento</th><th>Clase</th><th>Pasajero</th><th>Tarjeta</th></tr>";
+        for (let i = 0; i < asientos.length; i++) {
+          html +=
+            "<tr><td>" + (i + 1) + "</td><td>" + claseDeAsiento(i) + "</td>";
+          if (asientos[i] === "") {
+            html += "<td>Libre</td><td></td>";
+          } else {
+            html +=
+              "<td>" +
+              asientos[i] +
+              "</td>" +
+              "<td><button onclick='imprimirTarjeta(" +
+              i +
+              ")'>Imprimir tarjeta</button></td>";
+          }
+          html += "</tr>";
+        }
+        html += "</table>";
+        document.getElementById("tabla").innerHTML = html;
+      }
+
+      // Tarjeta de embarque en una nueva ventana
+      function imprimirTarjeta(posicion) {
+        const ventana = window.open("", "", "width=400,height=300");
+        ventana.document.write("<h2>Tarjeta de embarque</h2>");
+        ventana.document.write(
+          "<p><b>Pasajero:</b> " + asientos[posicion] + "</p>",
+        );
+        ventana.document.write("<p><b>Asiento:</b> " + (posicion + 1) + "</p>");
+        ventana.document.write(
+          "<p><b>Clase:</b> " + claseDeAsiento(posicion) + "</p>",
+        );
+        ventana.document.close();
+        ventana.print();
+      }
+
+      cargarAsientosLibres();
+      mostrarAsientos();
+    </script>
+  </body>
+</html>

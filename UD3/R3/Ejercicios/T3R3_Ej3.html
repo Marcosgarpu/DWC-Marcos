@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ3 Edad media</title>
+  </head>
+  <body>
+    <h2>Edad media de la clase</h2>
+    <p id="resultado"></p>
+
+    <script>
+      const clase = [
+        "Angel Garcia, 20, 6, 7, 10",
+        "Lucia Martin, 19, 8, 9, 7",
+        "Pablo Ruiz, 21, 5, 4, 6",
+        "Marta Lopez, 20, 9, 10, 9",
+        "Sergio Diaz, 22, 7, 6, 8",
+      ];
+
+      function edadMedia() {
+        let suma = 0;
+        for (let i = 0; i < clase.length; i++) {
+          const campos = clase[i].split(",");
+          suma = suma + Number(campos[1].trim());
+        }
+        return suma / clase.length;
+      }
+
+      document.getElementById("resultado").innerHTML =
+        "La edad media de los alumnos es " + edadMedia().toFixed(2) + " años";
+    </script>
+  </body>
+</html>

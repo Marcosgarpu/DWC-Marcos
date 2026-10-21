@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EJ7 Funciones con arrays</title>
+  </head>
+  <body>
+    <h2>Array de 10 elementos</h2>
+    <p id="resultado"></p>
+
+    <button onclick="accionCero()">a) Poner a cero</button>
+    <button onclick="accionSumar()">b) Sumar 1 a cada elemento</button>
+    <button onclick="accionMostrar()">c) Mostrar valores</button>
+
+    <script>
+      const numeros = [5, 3, 8, 1, 9, 2, 7, 4, 6, 10];
+
+      // a) Establecer los 10 elementos a cero
+      function ponerACero(array) {
+        for (let i = 0; i < array.length; i++) {
+          array[i] = 0;
+        }
+      }
+
+      // b) Añadir 1 a cada elemento
+      function sumarUno(array) {
+        for (let i = 0; i < array.length; i++) {
+          array[i] = array[i] + 1;
+        }
+      }
+
+      // c) Devolver los valores separados por espacios
+      function mostrarValores(array) {
+        let texto = "";
+        for (let i = 0; i < array.length; i++) {
+          texto = texto + array[i] + " ";
+        }
+        return texto;
+      }
+
+      function accionCero() {
+        ponerACero(numeros);
+        accionMostrar();
+      }
+
+      function accionSumar() {
+        sumarUno(numeros);
+        accionMostrar();
+      }
+
+      function accionMostrar() {
+        document.getElementById("resultado").innerHTML =
+          mostrarValores(numeros);
+      }
+
+      accionMostrar();
+    </script>
+  </body>
+</html>
