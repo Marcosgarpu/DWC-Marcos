@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.imagen {
+    height: 180px;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-size: 16px;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.categoria {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 0;
+}
+
+.descripcion {
+    font-size: 13px;
+    color: #555555;
+    text-align: justify;
+}
+
+.valoracion {
+    font-size: 13px;
+    color: #e67e22;
+    margin-top: auto;
+}
