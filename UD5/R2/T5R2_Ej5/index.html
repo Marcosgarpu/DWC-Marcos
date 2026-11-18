@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 5 - Subir ficheros</title>
+  </head>
+  <body>
+    <h1>Subir ficheros</h1>
+    <form
+      id="formulario"
+      action="#"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div id="ficheros">
+        <input type="file" name="fichero[]" />
+      </div>
+      <button type="button" id="adjuntar">Adjuntar otro fichero</button>
+      <button type="submit" id="enviar">Enviar</button>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
