@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #444444;
+}
+
+.pagina {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #c77dff 0%, #7b5cf0 50%, #3a46d6 100%);
+}
+
+.tarjeta {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 560px;
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Panel izquierdo ---------- */
+.ilustracion {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    background: linear-gradient(180deg, #d9a7ff 0%, #8a63f0 55%, #4b3ccf 100%);
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.sol {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #ffe9a0;
+}
+
+.nube {
+    position: absolute;
+    height: 26px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.nube1 {
+    top: 110px;
+    left: 40px;
+    width: 140px;
+}
+
+.nube2 {
+    top: 140px;
+    left: 160px;
+    width: 110px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 0.7em;
+}
+
+/* ---------- Panel derecho ---------- */
+.panel {
+    flex: 1.2;
+    padding: 50px 45px;
+}
+
+h1 {
+    margin: 0 0 8px;
+    font-size: 1.3em;
+    color: #2c3e50;
+    font-weight: normal;
+}
+
+.subtitulo {
+    margin: 0 0 25px;
+    font-size: 0.8em;
+    color: #888888;
+}
+
+.login {
+    margin: 0 0 12px;
+    font-size: 0.7em;
+}
+
+a {
+    color: #1a73e8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.fila {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.campo {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #555555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #dcdfe6;
+    border-radius: 3px;
+    font-size: 0.75em;
+    color: #444444;
+    background: #fafafa;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #1a73e8;
+}
+
+/* Campos incorrectos / correctos */
+input.incorrecto {
+    border-color: #e53935 !important;
+    background: #fff5f5 !important;
+}
+
+input.correcto {
+    border-color: #43a047 !important;
+}
+
+.error {
+    display: block;
+    min-height: 14px;
+    margin-top: 3px;
+    font-size: 0.65em;
+    color: #e53935;
+}
+
+.check {
+    margin: 4px 0;
+}
+
+.check label {
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+.check input {
+    margin-right: 6px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 9px 28px;
+    border: none;
+    border-radius: 3px;
+    background: #1a73e8;
+    color: #ffffff;
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1558b0;
+}
+
+.pie {
+    margin-top: 30px;
+    font-size: 0.7em;
+}
+
+@media (max-width: 800px) {
+    .ilustracion {
+        display: none;
+    }
+}

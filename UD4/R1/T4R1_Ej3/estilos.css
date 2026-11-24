@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ef7a7e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    width: 260px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px 4px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #ffd9a8;
+    outline: none;
+    text-align: center;
+    font-size: 1.6em;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #ffd9a8;
+}
+
+ul {
+    margin: 18px 0 20px 40px;
+    padding: 0;
+    text-align: left;
+    color: #ffd9a8;
+    font-size: 0.8em;
+    line-height: 1.8;
+}
+
+/* Cuando se cumple desaparece */
+li.valido {
+    display: none;
+}
+
+button {
+    padding: 6px 28px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5a39f;
+    color: #ef7a7e;
+    font-size: 0.8em;
+    cursor: not-allowed;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Botón activo cuando todo es válido */
+button:enabled {
+    background-color: #ffffff;
+    color: #ef7a7e;
+    cursor: pointer;
+}

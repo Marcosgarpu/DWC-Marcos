@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4 - Registro</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="pagina">
+    <div class="tarjeta">
+
+      <div class="ilustracion">
+        <span class="logo">crowdrise</span>
+        <div class="sol"></div>
+        <div class="nube nube1"></div>
+        <div class="nube nube2"></div>
+        <span class="copyright">© 2018 Crowdrise</span>
+      </div>
+
+      <div class="panel">
+        <h1>Welcome to Crowdrise</h1>
+        <p class="subtitulo">
+          Let's get you all set up so you can verify your nonprofit and begin setting up your first campaign!
+        </p>
+        <p class="login">Already have an account? <a href="#">Log in.</a></p>
+
+        <form id="formulario" novalidate>
+          <div class="fila">
+            <div class="campo">
+              <label for="nombre">First Name</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Peter">
+              <span class="error" id="error-nombre"></span>
+            </div>
+            <div class="campo">
+              <label for="apellido">Last Name</label>
+              <input type="text" id="apellido" name="apellido" placeholder="Deltondo">
+              <span class="error" id="error-apellido"></span>
+            </div>
+          </div>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="telefono">Phone</label>
+              <input type="text" id="telefono" name="telefono" placeholder="949-867-5309">
+              <span class="error" id="error-telefono"></span>
+            </div>
+            <div class="campo">
+              <label for="correo">Email</label>
+              <input type="text" id="correo" name="correo" placeholder="pdeltondo@crowdrise.com">
+              <span class="error" id="error-correo"></span>
+            </div>
+          </div>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password">
+              <span class="error" id="error-password"></span>
+            </div>
+            <div class="campo">
+              <label for="confirmar">Confirm Password</label>
+              <input type="password" id="confirmar" name="confirmar">
+              <span class="error" id="error-confirmar"></span>
+            </div>
+          </div>
+
+          <div class="check">
+            <label>
+              <input type="checkbox" id="emails" checked>
+              Yes, I want to receive Crowdrise's emails
+            </label>
+          </div>
+
+          <div class="check">
+            <label>
+              <input type="checkbox" id="terminos" checked>
+              I agree to the <a href="#">Terms</a>, <a href="#">Privacy Policy</a> and <a href="#">Fees</a>.
+            </label>
+            <span class="error" id="error-terminos"></span>
+          </div>
+
+          <button type="submit" id="registrar">Sign Up</button>
+        </form>
+
+        <p class="pie">Don't work for a nonprofit? <a href="#">You can still fundraise for one.</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

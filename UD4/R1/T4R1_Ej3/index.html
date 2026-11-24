@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3 - Validación en tiempo real</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <form id="formulario" novalidate>
+      <input
+        type="text"
+        id="usuario"
+        placeholder="username"
+        autocomplete="off"
+      />
+
+      <ul id="requisitos">
+        <li id="minuscula">1 lowercase character</li>
+        <li id="mayuscula">1 uppercase character</li>
+        <li id="longitud">6 minimum characters</li>
+      </ul>
+
+      <button type="submit" id="enviar" disabled>Submit</button>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
