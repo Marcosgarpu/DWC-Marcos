@@ -3,8 +3,11 @@ function validarNombre(valor) {
     return /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü]+([ '-][A-Za-zÁÉÍÓÚáéíóúÑñÜü]+)*$/.test(valor);
 }
 
+// Teléfono español: 9 dígitos, con prefijo opcional +34 o 0034.
+// Móviles: 6XXXXXXXX o 71-74XXXXXXX. Fijos: 8XXXXXXXX o 9XXXXXXXX.
 function validarTelefono(valor) {
-    return /^\+?\d{1,3}?[\s-]?\d{3}[\s-]?\d{3}[\s-]?\d{3,4}$/.test(valor);
+    let numero = valor.replace(/[\s.-]/g, "");
+    return /^(\+34|0034)?(6\d{8}|7[1-4]\d{7}|[89]\d{8})$/.test(numero);
 }
 
 function validarCorreo(valor) {
@@ -23,7 +26,7 @@ function validarConfirmacion(valor) {
 const campos = [
     { id: "nombre", validar: validarNombre, mensaje: "Enter a valid first name (letters only)." },
     { id: "apellido", validar: validarNombre, mensaje: "Enter a valid last name (letters only)." },
-    { id: "telefono", validar: validarTelefono, mensaje: "Enter a valid phone, e.g. 949-867-5309." },
+    { id: "telefono", validar: validarTelefono, mensaje: "Enter a valid Spanish phone, e.g. 612 345 678 or +34 912 345 678." },
     { id: "correo", validar: validarCorreo, mensaje: "Enter a valid email address." },
     { id: "password", validar: validarPassword, mensaje: "Min. 8 characters, with uppercase, lowercase and a number." },
     { id: "confirmar", validar: validarConfirmacion, mensaje: "Passwords do not match." }
